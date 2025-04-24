@@ -7,10 +7,6 @@
 
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
     to {
         opacity: 1;
         transform: translateY(0);
@@ -18,10 +14,6 @@
 }
 
 @keyframes slideInFromLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
     to {
         opacity: 1;
         transform: translateX(0);
@@ -48,8 +40,11 @@ header {
     padding: 20px;
     background-color: #1a1a1a;
     display: flex;
-    justify-content: flex-end; /* Align navbar to the right */
-   
+    justify-content: space-between; /* Align navbar to the right */  
+}
+header p {
+	font-weight: bold;
+	font-size: 2vw;
 }
 nav ul {
     list-style-type: none;
@@ -59,9 +54,9 @@ nav ul {
 nav ul li a {
     color: #ffffff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
     position: relative;
-    padding-bottom: 5px;
+    padding: 0.5rem;
     font-size: 1.2vw;
 }
 
@@ -73,7 +68,7 @@ nav ul li a::after {
     width: 0;
     height: 2px;
     background-color: yellow;
-   
+	transition: width 0.2s ease-out;
 }
 
 nav ul li a:hover::after,
@@ -102,20 +97,30 @@ main {
     flex: 2;
     max-width: 60%;
     text-align: left;
-}
-
-.intro-text h1 {
-    font-size: 4vw;
-    margin-bottom: 20px;
-
-}
-
-.intro-text p {
     color: #cccccc;
     font-size: 1.2vw;
     line-height: 1.5;
     margin-bottom: 20px;
-    animation: slideInFromLeft 2s ease-out forwards;
+}
+
+.intro-text > * {
+	opacity: 0;
+	transform: translateX(-100%);
+	animation: slideInFromLeft 1.5s ease-out forwards;
+}
+
+.intro-text h1 {
+    font-size: 3.5vw;
+    margin-bottom: 2rem;
+	animation-delay: 0s;
+}
+
+.intro-text p {
+	animation-delay: 0.5s;
+}
+
+.intro-text ul {
+	animation-delay: 0.5s;
 }
 
 .cta-button {
@@ -126,7 +131,8 @@ main {
     font-weight: bold;
     text-decoration: none;
     border-radius: 5px;
-    
+    animation-delay: 1s;
+	margin-top: 2rem;
 }
 
 .cta-button:hover {
@@ -137,13 +143,15 @@ main {
 .intro-image {
     flex: 1;
     text-align: center;
-   
 }
 
 .intro-image img {
     width: 300px;
     height: 300px;
     border-radius: 50%;
+	opacity: 0;
+	transform: translateY(100%);
+	animation: fadeIn 2s ease-out forwards;
 }
 
 /* Footer */
@@ -173,6 +181,10 @@ footer {
     filter: grayscale(0);
 }
 
+.copyright {
+	margin: 1rem;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     nav ul {
@@ -197,7 +209,7 @@ footer {
     }
 
     .intro-text h1 {
-        font-size: 5vw;
+        font-size: 4.5vw;
     }
 
     .intro-text p {
